@@ -25,6 +25,7 @@ exports.register = async (req, res) => {
     });
 
     const savedUser = await user.save();
+    user.message = "thanks for registring with us";
 
     await mail.sendmail(user);
 
@@ -109,6 +110,10 @@ exports.updatePassword = async (req, res) => {
     user.password = hashedPassword;
 
     await user.save();
+
+    user.message = "your password is updated successfully ";
+    await mail.sendmail(user);
+
     return res.status(200).json({
       message: "Password updated successfully",
     });
