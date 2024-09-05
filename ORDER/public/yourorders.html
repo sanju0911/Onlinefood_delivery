@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Your Orders</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Your Orders</h1>
+    </header>
+
+    <!-- Navigation bar on the left -->
+    <nav id="nav-buttons">
+      <button id="dashboard-btn">Dashboard</button>
+      <button id="cart-btn">Cart</button>
+      <button id="aboutus-btn">About Us</button>
+    </nav>
+
+    <main>
+      <h2>Order History</h2>
+      <ul id="orders-list">
+        <li>
+          <label for="order-1">Order #001 - Pizza, Burger ($18)</label>
+          <button class="view-btn">View</button>
+        </li>
+        <li>
+          <label for="order-2">Order #002 - Salad, Sandwich ($15)</label>
+          <button class="view-btn">View</button>
+        </li>
+        <li>
+          <label for="order-3">Order #003 - Fries, Soda ($6)</label>
+          <button class="view-btn">View</button>
+        </li>
+      </ul>
+
+      <!-- Area for displaying order details -->
+      <div id="order-details"></div>
+    </main>
+
+    <script src="./js/orders.js"></script>
+  </body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Your Cart</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Your Cart</h1>
+    </header>
+
+    <!-- Navigation bar on the left -->
+    <nav id="nav-buttons">
+      <button id="dashboard-btn">Dashboard</button>
+      <button id="aboutus-btn">About Us</button>
+      <button id="orders-btn">Your Orders</button>
+    </nav>
+
+    <main>
+      <h2>Cart Items</h2>
+      <ul id="cart-items-list">
+        <li>
+          <label for="cart-item-1">Pizza ($10)</label>
+        </li>
+        <li>
+          <label for="cart-item-2">Burger ($8)</label>
+        </li>
+        <li>
+          <label for="cart-item-3">Fries ($4)</label>
+        </li>
+      </ul>
+
+      <!-- Button to place order -->
+      <button id="place-order-btn">PLACE ORDER</button>
+      <div id="order-confirmation"></div>
+    </main>
+
+    <script src="./js/cart.js"></script>
+  </body>
+</html>

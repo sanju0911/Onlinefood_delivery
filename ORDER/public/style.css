@@ -1,0 +1,109 @@
+/* Basic styling for the header */
+header {
+    text-align: center;
+    padding: 10px;
+    background-color: #333;
+    color: white;
+  }
+  
+  /* Positioning nav buttons to the left corner */
+  #nav-buttons {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  #nav-buttons button {
+    margin: 5px 0;
+    padding: 10px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  #nav-buttons button:hover {
+    background-color: #45a049;
+  }
+  
+  /* Menu and main content */
+  main {
+    margin-left: 150px; /* Adjust depending on the size of the nav buttons */
+    padding: 20px;
+  }
+  
+  #menu-list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  #menu-list li {
+    margin-bottom: 10px;
+  }
+  
+  #order-btn {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #f04f30;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  #order-summary {
+    margin-top: 20px;
+  }
+  
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 1em;
+    text-align: center;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2em;
+}
+
+#menu-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#menu-list li {
+    margin-bottom: 1em;
+}
+
+#menu-list input[type="checkbox"] {
+    margin-right: 1em;
+}
+
+#order-btn {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 1em 2em;
+    cursor: pointer;
+}
+
+#order-btn:hover {
+    background-color: #444;
+}
+
+#order-summary {
+    margin-top: 2em;
+}

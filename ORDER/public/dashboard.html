@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Food Ordering Dashboard</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Food Ordering Dashboard</h1>
+    </header>
+
+    <!-- Navigation bar on the left -->
+    <nav id="nav-buttons">
+      <button id="cart-btn">Cart</button>
+      <button id="aboutus-btn">About Us</button>
+      <button id="orders-btn">Your Orders</button>
+    </nav>
+
+    <main>
+      <h2>Menu</h2>
+      <ul id="menu-list">
+        <li>
+          <input type="checkbox" id="item-1" name="item-1" />
+          <label for="item-1">Pizza ($10)</label>
+        </li>
+        <li>
+          <input type="checkbox" id="item-2" name="item-2" />
+          <label for="item-2">Burger ($8)</label>
+        </li>
+        <li>
+          <input type="checkbox" id="item-3" name="item-3" />
+          <label for="item-3">Salad ($6)</label>
+        </li>
+        <li>
+          <input type="checkbox" id="item-4" name="item-4" />
+          <label for="item-4">Sandwich ($9)</label>
+        </li>
+        <li>
+          <input type="checkbox" id="item-5" name="item-5" />
+          <label for="item-5">Fries ($4)</label>
+        </li>
+      </ul>
+      <button id="order-btn">PLACE ORDER</button>
+      <div id="order-summary"></div>
+      <button id="order-btn">ADD TO CART</button>
+
+      <div id="order-summary"></div>
+    </main>
+
+    <script src="./js/dashboard.js"></script>
+  </body>
+</html>
