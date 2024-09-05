@@ -2,6 +2,7 @@ const User = require("../models/userModel");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const dotenv = require("dotenv").config();
+const mail = require("../middlewares/email");
 
 exports.register = async (req, res) => {
   try {
@@ -24,6 +25,8 @@ exports.register = async (req, res) => {
     });
 
     const savedUser = await user.save();
+
+    await mail.sendmail(user);
 
     res.status(201).json({
       message: "User created successfully",
@@ -68,6 +71,50 @@ exports.login = async (req, res) => {
   } catch (error) {
     res.status(500).json({
       message: "Error logging in",
+      error: error.message,
+    });
+  }
+};
+
+exports.forgetPassword = async (req, res) => {
+  try {
+    const { email } = req.body;
+    const user = await User.findOne({ email });
+    if (!user) {
+      return res.status(404).json({
+        message: "User not found , please register first",
+      });
+    }
+
+    return res.status(200);
+  } catch (error) {
+    return res.status(500).json({
+      message: "Error finding the user  details ",
+      error: error.message,
+    });
+  }
+};
+
+exports.updatePassword = async (req, res) => {
+  try {
+    const { email, password } = req.body;
+
+    const user = await User.findOne({ email });
+    if (!user) {
+      return res.status(404).json({
+        message: "User not found , please register first",
+      });
+    }
+    const hashedPassword = await bcrypt.hash(password, 10);
+    user.password = hashedPassword;
+
+    await user.save();
+    return res.status(200).json({
+      message: "Password updated successfully",
+    });
+  } catch (error) {
+    return res.status(500).json({
+      message: "Error updating password",
       error: error.message,
     });
   }
