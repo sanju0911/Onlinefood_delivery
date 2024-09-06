@@ -12,16 +12,32 @@ document.getElementById("orders-btn").addEventListener("click", function () {
 });
 
 // Contact form submission
-document
-  .getElementById("contact-form")
-  .addEventListener("submit", function (event) {
-    event.preventDefault(); // Prevent form from submitting
+document.addEventListener("DOMContentLoaded", () => {
+  const contactForm = document.getElementById("contact-form");
+
+  contactForm.addEventListener("submit", async (event) => {
+    event.preventDefault(); // Prevent the form from submitting the traditional way
+
     const contactInfo = document.getElementById("contact-info").value;
 
-    if (contactInfo) {
-      alert(
-        "Thank you for reaching out! We will get in touch with you shortly."
-      );
-      document.getElementById("contact-form").reset(); // Reset form after submission
+    try {
+      const response = await fetch("http://localhost:5000/complaint", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email: contactInfo }),
+      });
+
+      if (!response.ok) {
+        throw new Error(`Error: ${response.statusText}`);
+      }
+
+      const result = await response.json();
+      alert(result.message); // Show the response message in a popup
+    } catch (error) {
+      console.error("Error submitting complaint:", error);
+      alert("Failed to submit complaint. Please try again later.");
     }
   });
+});
